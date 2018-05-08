@@ -1,0 +1,15 @@
+﻿@page
+@using System.IO
+@model JoaJebiPage.Pages.GalleryPageModel
+@{
+    ViewData["Title"] = "GalleryPage";
+}
+<h2>GalleryPage</h2>
+
+@{
+    foreach (var image in @Model.GetImages())
+    {
+        <img src="@image"/>
+    }
+}
+

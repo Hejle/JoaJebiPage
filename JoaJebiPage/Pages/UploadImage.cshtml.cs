@@ -24,11 +24,15 @@ namespace JoaJebiPage.Pages
 
         public async Task OnPostAsync()
         {
-            var filePath = "wwwroot/images";
-            string fullName = Path.Combine(filePath, Guid.NewGuid().ToString());
-            using (var fileStream = new FileStream(fullName, FileMode.Create))
+            if (FileUpload != null)
             {
-                await FileUpload.CopyToAsync(fileStream);
+                var filePath = "wwwroot/images/galary";
+                string fileName = FileUpload.FileName;
+                string fullName = Path.Combine(filePath, Guid.NewGuid().ToString() + "." + fileName);
+                using (var fileStream = new FileStream(fullName, FileMode.Create))
+                {
+                    await FileUpload.CopyToAsync(fileStream);
+                }
             }
         }
     }

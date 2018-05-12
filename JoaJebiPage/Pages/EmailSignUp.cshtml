@@ -1,0 +1,18 @@
+﻿@page
+@model JoaJebiPage.Pages.EmailSignUpModel
+@{
+    ViewData["Title"] = "EmailSignUp";
+}
+
+<h2>EmailSignUp</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <p>Name: </p>
+    <input type="text" asp-for="NameUpload"> <br>
+    <p>Email: </p>
+    <input type="email" asp-for="EMailUpload" /> <br> <br>
+    <input type="submit" asp-page-handler="EMAIL" value="Submit">
+</form>
+<p>First Text</p>
+<p>@Model.GetText()</p>
+

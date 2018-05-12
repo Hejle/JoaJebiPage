@@ -6,8 +6,11 @@
     <Content Include="services\GalleryService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+    <PackageReference Include="Fancybox" Version="2.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" />
+    <PackageReference Include="prettyPhoto" Version="3.1.6" />
+    <PackageReference Include="Tyrrrz.AspNetCore.Mvc.Lightbox" Version="1.0.0" />
     <PackageReference Include="WebMatrix.Executer" Version="1.5.0" />
   </ItemGroup>
   <ItemGroup>

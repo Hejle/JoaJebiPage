@@ -1,6 +1,7 @@
 ﻿@page
 @using System.IO
 @model JoaJebiPage.Pages.GalleryPageModel
+@addTagHelper *, Tyrrrz.AspNetCore.Mvc.Lightbox
 @{
     ViewData["Title"] = "GalleryPage";
 }
@@ -9,7 +10,12 @@
 @{
     foreach (var image in @Model.GetImages())
     {
-        <img src="@image"/>
+        <a href="@image" data-lightbox="Gallery">
+            <img src="@image" />
+        </a>
     }
 }
 
+
+
+<lightbox disable-scrolling="true" fit-images-in-viewport="true" resize-duration="TimeSpan.FromMilliseconds(0)" wrap-around="true" />

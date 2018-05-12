@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -24,8 +25,13 @@ namespace JoaJebiPage.Pages
         {
             if (TextUpload != null)
             {
-                
+                Debug.WriteLine(TextUpload);
             }
+        }
+
+        public string GetText()
+        {
+            return TextUpload;
         }
     }
 }

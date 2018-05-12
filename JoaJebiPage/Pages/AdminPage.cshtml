@@ -1,0 +1,13 @@
+﻿@page
+@model JoaJebiPage.Pages.AdminPageModel
+@{
+    ViewData["Title"] = "AdminPage";
+}
+
+<h2>AdminPage</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <label asp-for="TextUpload"></label>
+    <textarea type="text" asp-for="TextUpload"> </textarea>
+    <input type="submit" value="Upload" />
+</form>

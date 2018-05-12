@@ -9,16 +9,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h2>Upload Image</h2>
-        <!--
-        <form method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <input name="image" type="file" class="form-control" accept="image/*" />
-            </div>
-            <input type="submit" value="Upload" class="btn btn-default" />
-        </form>
-        -->
-        
+        <h2>Upload Image</h2>        
         <form method="post" enctype="multipart/form-data">
             <label asp-for="FileUpload"></label>
             <input type="file" asp-for="FileUpload"/>

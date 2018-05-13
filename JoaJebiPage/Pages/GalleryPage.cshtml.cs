@@ -17,7 +17,7 @@ namespace JoaJebiPage.Pages
 
         public string[] GetImages()
         {
-            string path = "wwwroot/images/galary";
+            string path = "wwwroot/images/gallery";
             var files = Directory.GetFiles(path);
             var images = new List<string>();
             foreach (var file in files)

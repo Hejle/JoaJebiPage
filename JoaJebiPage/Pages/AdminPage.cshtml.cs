@@ -27,7 +27,7 @@ namespace JoaJebiPage.Pages
         { 
         }
 
-        public async Task OnPostAsync()
+        public async Task OnPostAsyncEditAbout()
         {
             if (Who.Equals("Joachim"))
             {

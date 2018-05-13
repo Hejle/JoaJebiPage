@@ -7,14 +7,13 @@
 <h2>AdminPage</h2>
 
 <form method="post" enctype="multipart/form-data">
-    
     <select asp-for="Who">
         <option value="Jebisan">JebisanH</option>
         <option value="Joachim">JoachimH</option>
     </select>
     <label asp-for="TextUpload"></label>
     <textarea style="width: 500px;" id="editableText" type="text" asp-for="TextUpload"> </textarea>
-    <input type="submit" value="Upload"/>
+    <input type="submit" value="Upload" asp-page-handler="EditAbout"/>
 </form>
 @section scripts {
         <script src="~/js/nicEdit.js"> </script>

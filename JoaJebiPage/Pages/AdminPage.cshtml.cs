@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
@@ -58,7 +58,17 @@ namespace JoaJebiPage.Pages
         { 
             if (ImageUpload != null)  
             {
+<<<<<<< HEAD
                 await saveService.SaveImage(ImageUpload);
+=======
+                var filePath = "wwwroot/images/gallery";
+                string fileName = FileUpload.FileName;
+                string fullName = Path.Combine(filePath, Guid.NewGuid().ToString() + "." + fileName);
+                using (var fileStream = new FileStream(fullName, FileMode.Create))
+                {
+                    await FileUpload.CopyToAsync(fileStream);
+                }
+>>>>>>> 89527ab... Fixed "galary"
             }
         }
     }

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace JoaJebiPage.Pages
 {
-    public class AboutModel : PageModel
-    {
-        public string Message { get; set; }
+	public class AboutModel : PageModel
+	{
+		public string Message { get; set; }
+
+
 
         public void OnGet()
         {

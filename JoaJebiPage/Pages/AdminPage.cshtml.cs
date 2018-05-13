@@ -24,24 +24,16 @@ namespace JoaJebiPage.Pages
 
 		[Required]
 		[BindProperty]
-		public string Who { get; set; }
+		public PersonEnum.Person Who { get; set; }
 
 		public void OnGet()
 		{
 		}
 
-		public async Task OnPostAsyncEditAbout()
+		public async Task OnPostEditAboutAsync()
 		{
-			if (Who.Equals("Joachim"))
-			{
-				Debug.WriteLine("Joachim");
-				Debug.WriteLine(TextUpload);
-			}
-			else if (Who.Equals("Jebisan"))
-			{
-				Debug.WriteLine("Jebisan");
-				Debug.WriteLine(TextUpload);
-			}
+		    await saveService.SaveAboutText(TextUpload, Who);
+
 		}
 
 		public HtmlString GetText()
@@ -54,7 +46,7 @@ namespace JoaJebiPage.Pages
 		[BindProperty]
 		public IFormFile ImageUpload { get; set; }
 
-		public async Task OnPostAsyncImageUpload()
+		public async Task OnPostImageUploadAsync()
 		{
 			if (ImageUpload != null)
 			{
@@ -62,5 +54,11 @@ namespace JoaJebiPage.Pages
 
 			}
 		}
+
+	    public PersonEnum.Person[] GetPersons()
+	    {
+	        PersonEnum.Person[] plist = {PersonEnum.Person.Jebisan, PersonEnum.Person.Joachim};
+	        return plist;
+	    }
 	}
 }

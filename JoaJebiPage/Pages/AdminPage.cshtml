@@ -8,8 +8,12 @@
 
 <form method="post" enctype="multipart/form-data">
     <select asp-for="Who">
-        <option value="Jebisan">JebisanH</option>
-        <option value="Joachim">JoachimH</option>
+        @{
+            foreach (var person in @Model.GetPersons())
+            {
+                <option value="@person">@person.ToString()</option>
+            }
+        }
     </select>
     <label asp-for="TextUpload"></label>
     <textarea style="width: 500px;" id="editableText" type="text" asp-for="TextUpload"> </textarea>

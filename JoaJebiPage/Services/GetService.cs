@@ -9,11 +9,6 @@ namespace JoaJebiPage.Services
     public class GetService
     {
 
-        public string GetAboutMe(string who)
-        {
-            return "";
-        }
-
         public string[] GetImages(string folder)
         {
             string path = "wwwroot/images" + folder;

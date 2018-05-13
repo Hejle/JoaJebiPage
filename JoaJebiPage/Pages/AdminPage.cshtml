@@ -7,9 +7,14 @@
 <h2>AdminPage</h2>
 
 <form method="post" enctype="multipart/form-data">
+    
+    <select asp-for="Who">
+        <option value="Jebisan">JebisanH</option>
+        <option value="Joachim">JoachimH</option>
+    </select>
     <label asp-for="TextUpload"></label>
     <textarea style="width: 500px;" id="editableText" type="text" asp-for="TextUpload"> </textarea>
-    <input type="submit" value="Upload" />
+    <input type="submit" value="Upload"/>
 </form>
 @section scripts {
         <script src="~/js/nicEdit.js"> </script>
@@ -17,7 +22,17 @@
             new nicEditor({ fullPanel: true, iconsPath: './images/nicEditorIcons.gif'}).panelInstance('editableText');
         </script>     
 }
-
-<p>Tekst fra Serveren</p>
 <p>@Model.GetText()</p>
+
+<br/>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Upload Image</h2>
+        <form method="post" enctype="multipart/form-data">
+            <label asp-for="FileUpload"></label>
+            <input type="file" asp-for="FileUpload" />
+            <input type="submit" asp-page-handler="ImageUpload" value="Upload" />
+        </form>
+    </div>
+</div>
 

@@ -24,9 +24,10 @@ namespace JoaJebiPage.Services
             }
         }
 
-        public void SaveAboutText(string text, string person)
+        public async Task SaveAboutText(string text, PersonEnum.Person person)
         {
-
+            string path = "Persistence/" + person.ToString() + "About.txt";
+            await File.AppendAllTextAsync(path, text);
         }
 
         public async Task SaveEmail(string name, string email)

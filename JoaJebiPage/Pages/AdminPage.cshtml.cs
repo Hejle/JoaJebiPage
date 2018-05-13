@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using JoaJebiPage.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Html;
@@ -14,6 +15,8 @@ namespace JoaJebiPage.Pages
 {
     public class AdminPageModel : PageModel
     {
+        private SaveService saveService = new SaveService();
+
 
         [Required]
         [BindProperty]
@@ -49,19 +52,13 @@ namespace JoaJebiPage.Pages
         [Required]
         [Display(Name = "Picture")]
         [BindProperty]
-        public IFormFile FileUpload { get; set; }
+        public IFormFile ImageUpload { get; set; }
 
         public async Task OnPostAsyncImageUpload()
-        {
-            if (FileUpload != null)
+        { 
+            if (ImageUpload != null)  
             {
-                var filePath = "wwwroot/images/galary";
-                string fileName = FileUpload.FileName;
-                string fullName = Path.Combine(filePath, Guid.NewGuid().ToString() + "." + fileName);
-                using (var fileStream = new FileStream(fullName, FileMode.Create))
-                {
-                    await FileUpload.CopyToAsync(fileStream);
-                }
+                await saveService.SaveImage(ImageUpload);
             }
         }
     }

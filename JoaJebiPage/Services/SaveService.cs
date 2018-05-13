@@ -13,12 +13,18 @@ namespace JoaJebiPage.Services
 
         private EmailService emailService = new EmailService();
 
-        public void SaveImage(IFormFile img)
-        {
-
+        public async Task SaveImage(IFormFile img)
+        {         
+            var filePath = "wwwroot/images/gallery";
+            string fileName = img.FileName;
+            string fullName = Path.Combine(filePath, Guid.NewGuid().ToString() + "." + fileName);
+            using (var fileStream = new FileStream(fullName, FileMode.Create))
+            {
+                await img.CopyToAsync(fileStream);
+            }
         }
 
-        public void SaveText(string text, string person)
+        public void SaveAboutText(string text, string person)
         {
 
         }

@@ -8,9 +8,15 @@
 
 <form method="post" enctype="multipart/form-data">
     <label asp-for="TextUpload"></label>
-    <textarea type="text" asp-for="TextUpload"> </textarea>
+    <textarea style="width: 500px;" id="editableText" type="text" asp-for="TextUpload"> </textarea>
     <input type="submit" value="Upload" />
 </form>
+@section scripts {
+        <script src="~/js/nicEdit.js"> </script>
+        <script>
+            new nicEditor({ fullPanel: true, iconsPath: './images/nicEditorIcons.gif'}).panelInstance('editableText');
+        </script>     
+}
 
 <p>Tekst fra Serveren</p>
 <p>@Model.GetText()</p>

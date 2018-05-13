@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Html;
 
 namespace JoaJebiPage.Pages
 {
@@ -25,13 +26,17 @@ namespace JoaJebiPage.Pages
         {
             if (TextUpload != null)
             {
-                Debug.WriteLine(TextUpload);
+                /*string temp = TextUpload;
+                temp = temp.Replace(" ", "&nbsp;");
+                temp = temp.Replace("\r\n", "<br>");
+                TextUpload = temp;
+                Debug.WriteLine(TextUpload); */
             }
         }
 
-        public string GetText()
+        public HtmlString GetText()
         {
-            return TextUpload;
+            return new HtmlString(TextUpload);
         }
     }
 }

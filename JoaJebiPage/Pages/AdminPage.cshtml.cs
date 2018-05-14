@@ -15,7 +15,18 @@ namespace JoaJebiPage.Pages
 {
 	public class AdminPageModel : PageModel
 	{
+
 		private SaveService saveService = SaveService.Instance;
+		private GetService getService = GetService.Instance;
+      
+		[Required]
+        [BindProperty]
+		public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Birthday { get; set; }
+        public string Description { get; set; }
+        public string Picture { get; set; }
+
 
 
 		[Required]
@@ -26,8 +37,41 @@ namespace JoaJebiPage.Pages
 		[BindProperty]
 		public PersonEnum.Person Who { get; set; }
 
+	
+        
+		public async void OnPostInformation(){		
+			using (System.IO.StreamWriter file = new System.IO.StreamWriter("Persistence/" + Who + "/About.txt"))
+                file.WriteLine(
+					"firstname =" +FirstName+"\n" +
+					"lastname = Hejlesen\n" +
+					"date = 10.Januar 1994\n" +
+					"description = Jeg er en fed idiot.\n" +
+					"image = images / ProfilePictures / Joachim.jpg"
+				
+				);
+
+              
+		}
+        
+
+        
 		public void OnGet()
 		{
+			var dictionary = getService.LoadPersonData(Who);
+
+			try
+            {
+                FirstName = dictionary["firstname"];
+                LastName = dictionary["lastname"];
+                Birthday = dictionary["date"];
+                Description = dictionary["description"];
+                Picture = dictionary["image"];
+            }
+
+            catch (KeyNotFoundException e)
+            {
+                Console.WriteLine(e);
+            }
 		}
 
 		public async Task OnPostEditAboutAsync()
@@ -40,6 +84,8 @@ namespace JoaJebiPage.Pages
 		{
 			return new HtmlString(TextUpload);
 		}
+
+
 
 		[Required]
 		[Display(Name = "Picture")]

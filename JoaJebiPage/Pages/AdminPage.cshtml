@@ -3,39 +3,29 @@
 @{
     ViewData["Title"] = "AdminPage";
 }
-
 <h2>AdminPage</h2>
-
-<form method="post" enctype="multipart/form-data">
-    <select asp-for="Who">
-        @{
-            foreach (var person in @Model.GetPersons())
-            {
-                <option value="@person">@person.ToString()</option>
-            }
-        }
-    </select>
-    <label asp-for="TextUpload"></label>
-    <textarea style="width: 500px;" id="editableText" type="text" asp-for="TextUpload"> </textarea>
-    <input type="submit" value="Upload" asp-page-handler="EditAbout"/>
-</form>
-@section scripts {
-        <script src="~/js/nicEdit.js"> </script>
-        <script>
-            new nicEditor({ fullPanel: true, iconsPath: './images/nicEditorIcons.gif'}).panelInstance('editableText');
-        </script>     
-}
 <p>@Model.GetText()</p>
-
-<br/>
+<br />
 <div class="row">
     <div class="col-md-12">
-        <h2>Upload Image</h2>
+        <h3>Upload Image</h3>
         <form method="post" enctype="multipart/form-data">
             <label asp-for="ImageUpload"></label>
             <input type="file" asp-for="ImageUpload" />
             <input type="submit" asp-page-handler="ImageUpload" value="Upload" />
         </form>
+
+        <h3>Change Information</h3>
+        <form method="post" enctype="multipart/form-data">
+            <p>Firstname: </p>
+            <input type="text" asp-for="FirstName" />
+            <p>Lastname: </p>
+            <input type="text" asp-for="@Model.LastName" />
+            <p>Birthday: </p>
+            <input type="text" asp-for="@Model.Birthday" />
+            <p>Description: </p>
+            <input type="text" asp-for="@Model.Description" /> <br /> <br />
+            <input type="submit" asp-page-handler="INFORMATION" value="Submit" />
+        </form>
     </div>
 </div>
-

@@ -23,7 +23,6 @@ namespace JoaJebiPage.Pages
 
         public void OnGet()
         {
-            NameUpload = "TestString";
         }
 
         public async void OnPostEmail()

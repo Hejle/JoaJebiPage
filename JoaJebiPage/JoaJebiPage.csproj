@@ -22,6 +22,9 @@
     <Content Remove="wwwroot\images\ProfilePictures\Jebisan.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Jebisan.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="wwwroot\images\ProfilePictures\Joachim.jpg" />
     <None Include="wwwroot\css\bootstrap.min.css" />
     <None Include="wwwroot\css\font-awesome.min.css" />

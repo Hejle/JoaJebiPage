@@ -9,6 +9,24 @@ namespace JoaJebiPage.Services
     public class GetService
     {
 
+        public Dictionary<string, string> LoadPersonData(PersonEnum.Person person)
+        {
+            var dictionary = new Dictionary<string, string>();
+            try
+            {
+                string[] lines = System.IO.File.ReadAllLines("Persistence/" + person + "/About.txt");
+
+                var pairs = lines.Select(l => new { Line = l, Position = l.IndexOf("=") });
+                dictionary = pairs.ToDictionary(pair => pair.Line.Substring(0, pair.Position),
+                    p => p.Line.Substring(p.Position + 1));
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine(e);
+            }
+            return dictionary;
+        }
+
         public string[] GetImages(string folder)
         {
             string path = "wwwroot/images" + folder;

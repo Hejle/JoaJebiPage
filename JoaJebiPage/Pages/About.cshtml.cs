@@ -22,44 +22,26 @@ namespace JoaJebiPage.Pages
 
 	    public void OnGet()
 	    {
-	        LoadData(PersonEnum.Person.Jebisan);
-	    }
+	        /*LoadData(PersonEnum.Person.Jebisan);
 
-	    private void LoadData(PersonEnum.Person person)
-        {
-            try
-            {
-                string[] lines = System.IO.File.ReadAllLines("Persistence/" + person + "/About.txt");
-                //Enumerable<string, int>
-                //System.Linq.Enumerable
-                var pairs = lines.Select(l => new {Line = l, Position = l.IndexOf("=")});
-                var dictionary = pairs.ToDictionary(pair => pair.Line.Substring(0, pair.Position), p => p.Line.Substring(p.Position + 1));
-
-                FirstName = dictionary["firstname"];
-                LastName = dictionary["lastname"];
-                Birthday = dictionary["date"];
-                Description = dictionary["description"];
-                Picture = dictionary["image"];
-            }
-            catch (KeyNotFoundException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (FileNotFoundException e)
-            {
-                Console.WriteLine(e);
-            }
+	        FirstName = dictionary["firstname"];
+	        LastName = dictionary["lastname"];
+	        Birthday = dictionary["date"];
+	        Description = dictionary["description"];
+	        Picture = dictionary["image"];*/
         }
+
+	    
 
         public PersonEnum.Person[] GetPersons()
 	    {
-	        PersonEnum.Person[] plist = { PersonEnum.Person.Jebisan, PersonEnum.Person.Joachim };
-	        return plist;
+	        PersonEnum.Person[] personList = { PersonEnum.Person.Jebisan, PersonEnum.Person.Joachim };
+	        return personList;
 	    }
 
 	    public void OnPostAbout()
 	    {
-	        LoadData(Who);
+	        //LoadData(Who);
 	    }
     }
 }

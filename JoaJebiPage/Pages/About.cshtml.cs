@@ -19,7 +19,7 @@ namespace JoaJebiPage.Pages
 
 	    public void OnGet()
 	    {
-	       LoadPerson(PersonEnum.Person.Jebisan);
+	       LoadPerson(PersonEnum.Person.Joachim);
         }
 
         public PersonEnum.Person[] GetPersons()
@@ -106,6 +106,5 @@ namespace JoaJebiPage.Pages
 	    public string WorkTitle2 { get; set; }
 	    public string WorkPlace2 { get; set; }
 	    public string WorkLocation2 { get; set; }
-
     }
 }

@@ -22,52 +22,64 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="profile-img">
-                        <img src=@Model.Picture class="img-responsive" alt="" />
-                    </div>
-                    <!-- Profile Image -->
+<header class="header">
+    <form method="post" enctype="multipart/form-data">
+        <select asp-for="Who">
+            @{
+                foreach (var person in @Model.GetPersons())
+                {
+                    <option value="@person">@person.ToString()</option>
+                }
+            }
+        </select>
+        <br/>
+        <input type="submit" value="Change Person" asp-page-handler="About"/>
+    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="profile-img">
+                    <img src=@Model.Picture class="img-responsive" alt=""/>
                 </div>
-                <div class="col-md-9">
-                    <div class="name-wrapper">
-                        <h1 class="name">@Model.FirstName @Model.LastName</h1>
-                        <span>Software Engineering, Bachelor studerende</span>
-                    </div>
-                    <p>
-                        @Model.Description
-                    </p>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="personal-details">
-                                <strong>@Model.Birthday</strong>
-                                <small>Fødselsdag</small>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="personal-details">
-                                <strong>Danmark</strong>
-                                <small>Nationalitet</small>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="personal-details">
-                                <strong>Dansk <span>(Modersmål)</span>, Engelsk <span>(Akademisk niveau)</span></strong>
-                                <small>Sprog</small>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="social-icon">
-                        <li><a href="https://www.facebook.com/PleaseInsertMyNameHere"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                    </ul>
+                <!-- Profile Image -->
+            </div>
+            <div class="col-md-9">
+                <div class="name-wrapper">
+                    <h1 class="name">@Model.FirstName @Model.LastName</h1>
+                    <span>Software Engineering, Bachelor studerende</span>
                 </div>
+                <p>
+                    @Model.Description
+                </p>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="personal-details">
+                            <strong>@Model.Birthday</strong>
+                            <small>Fødselsdag</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="personal-details">
+                            <strong>Danmark</strong>
+                            <small>Nationalitet</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="personal-details">
+                            <strong>Dansk <span>(Modersmål)</span>, Engelsk <span>(Akademisk niveau)</span></strong>
+                            <small>Sprog</small>
+                        </div>
+                    </div>
+                </div>
+                <ul class="social-icon">
+                    <li><a href="https://www.facebook.com/PleaseInsertMyNameHere"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                </ul>
             </div>
         </div>
-    </header>
+    </div>
+</header>
     <!-- .header-->
     <section class="section-wrapper section-experience">
         <div class="container">

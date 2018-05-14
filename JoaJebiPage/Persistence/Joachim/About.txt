@@ -1,5 +1,25 @@
 firstname=Joachim
 lastname=Hejlesen
 date=10. January 1994
-description=Jeg er en fed idiot.
+description=Jeg er en = fed idiot.
 image=images/ProfilePictures/Joachim.jpg
+work2time=2017 - Nu
+work2title=Studenterprogrammør
+work2place=POSONE
+work2location=Denmark, Odense
+work1time=2011 - 2015
+work1title=Servicemedarbejder
+work1place=Bilka
+work1location=Denmark, Holstebro
+education3time=2015 - 2018
+education3jobtitle=BSc in Software Engineering
+education3place=University of Southern Denmark
+education3location=Denmark, Odense
+education2time=2011 - 2014
+education2jobtitle=Kommunikation/IT
+education2place=UCH - Holstebro Tekniske Gymnasium
+education2location=Denmark, Holstebro
+education1time=2000 - 2010
+education1title=Elev
+education1place=Tvis Skole
+education1location=Denmark, Holstebro

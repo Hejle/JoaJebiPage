@@ -11,7 +11,6 @@ namespace JoaJebiPage.Pages
 {
 	public class AboutModel : PageModel
 	{
-
         private GetService getService = GetService.Instance;
 	    public string FirstName { get; set; } = "FirstName";
 		public string LastName { get; set; } = "LastName";

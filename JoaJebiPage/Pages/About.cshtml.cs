@@ -25,29 +25,13 @@ namespace JoaJebiPage.Pages
 	        LoadData(PersonEnum.Person.Jebisan);
 	    }
 
-	    private void LoadData1(PersonEnum.Person person)
-	    {
-	        string information;
-	        using (StreamReader reader = new StreamReader("Persistence/" +person + "About.txt"))
-	        {
-	            information = reader.ReadLine();
-	        }
-
-	        string[] splittedWords = information.Split(new Char[] { ',' });
-
-	        FirstName = splittedWords[0];
-	        LastName = splittedWords[1];
-	        Birthday = splittedWords[2];
-	        Description = splittedWords[3];
-	        Picture = splittedWords[4];
-        }
-
 	    private void LoadData(PersonEnum.Person person)
         {
             try
             {
                 string[] lines = System.IO.File.ReadAllLines("Persistence/" + person + "/About.txt");
-
+                //Enumerable<string, int>
+                //System.Linq.Enumerable
                 var pairs = lines.Select(l => new {Line = l, Position = l.IndexOf("=")});
                 var dictionary = pairs.ToDictionary(pair => pair.Line.Substring(0, pair.Position), p => p.Line.Substring(p.Position + 1));
 

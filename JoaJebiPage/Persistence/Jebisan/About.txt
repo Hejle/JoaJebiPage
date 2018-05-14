@@ -1,0 +1,5 @@
+firstname=Jebisan
+lastname=Nadarajah
+date=8. Januar 1995
+description=Jeg er den fedeste idiot.
+image=images/ProfilePictures/Jebisan.jpg

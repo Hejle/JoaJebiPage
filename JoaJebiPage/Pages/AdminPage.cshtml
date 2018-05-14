@@ -4,28 +4,36 @@
     ViewData["Title"] = "AdminPage";
 }
 <h2>AdminPage</h2>
-<p>@Model.GetText()</p>
 <br />
 <div class="row">
     <div class="col-md-12">
-        <h3>Upload Image</h3>
+        <form method="post"  asp-page-handler="About" enctype="multipart/form-data">
+            <select onchange="this.form.submit()" asp-for="Who">
+                @{
+                    foreach (var person in @Model.GetPersons())
+                    {
+                        <option value="@person">@person.ToString()</option>
+                    }
+                }
+            </select>
+        </form>
+        <h3>Upload Image to Gallery</h3>
         <form method="post" enctype="multipart/form-data">
-            <label asp-for="ImageUpload"></label>
-            <input type="file" asp-for="ImageUpload" />
-            <input type="submit" asp-page-handler="ImageUpload" value="Upload" />
+            <input type="file" asp-for="ImageUpload"/>
+            <input type="submit" asp-page-handler="ImageUpload" value="Upload"/>
         </form>
 
         <h3>Change Information</h3>
         <form method="post" enctype="multipart/form-data">
             <p>Firstname: </p>
-            <input type="text" asp-for="FirstName" />
+            <input type="text" asp-for="FirstName"/>
             <p>Lastname: </p>
-            <input type="text" asp-for="@Model.LastName" />
+            <input type="text" asp-for="@Model.LastName"/>
             <p>Birthday: </p>
-            <input type="text" asp-for="@Model.Birthday" />
+            <input type="text" asp-for="@Model.Birthday"/>
             <p>Description: </p>
-            <input type="text" asp-for="@Model.Description" /> <br /> <br />
-            <input type="submit" asp-page-handler="INFORMATION" value="Submit" />
+            <input type="text" asp-for="@Model.Description"/> <br/> <br/>
+            <input type="submit" asp-page-handler="INFORMATION" value="Submit"/>
         </form>
     </div>
 </div>

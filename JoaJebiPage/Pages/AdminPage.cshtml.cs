@@ -15,91 +15,76 @@ namespace JoaJebiPage.Pages
 {
 	public class AdminPageModel : PageModel
 	{
-
 		private SaveService saveService = SaveService.Instance;
 		private GetService getService = GetService.Instance;
-      
-		[Required]
-        [BindProperty]
-		public string FirstName { get; set; }
+	    [Required]
+	    [BindProperty]
+	    public string FirstName { get; set; }
+	    [Required]
+	    [BindProperty]
         public string LastName { get; set; }
+	    [Required]
+	    [BindProperty]
         public string Birthday { get; set; }
+	    [Required]
+	    [BindProperty]
         public string Description { get; set; }
+	    [Required]
+	    [BindProperty]
         public string Picture { get; set; }
-
-
-
-		[Required]
-		[BindProperty]
-		public string TextUpload { get; set; }
-
 		[Required]
 		[BindProperty]
 		public PersonEnum.Person Who { get; set; }
+	    [Required]
+	    [BindProperty]
+	    public IFormFile ImageUpload { get; set; }
 
-	
-        
-		public async void OnPostInformation(){		
-			using (System.IO.StreamWriter file = new System.IO.StreamWriter("Persistence/" + Who + "/About.txt"))
-                file.WriteLine(
-					"firstname =" +FirstName+"\n" +
-					"lastname = Hejlesen\n" +
-					"date = 10.Januar 1994\n" +
-					"description = Jeg er en fed idiot.\n" +
-					"image = images / ProfilePictures / Joachim.jpg"
-				
-				);
-
-              
+        public async void OnPostInformationAsync()
+        {
+            var dictionary = getService.LoadPersonData(Who);
+            dictionary["firstname"] = FirstName;
+            dictionary["lastname"] = LastName;
+            dictionary["date"] = Birthday;
+            dictionary["description"] = Description;
+            await saveService.SaveAboutText(Who, dictionary);
 		}
         
 
         
 		public void OnGet()
 		{
-			var dictionary = getService.LoadPersonData(Who);
-
-			try
-            {
-                FirstName = dictionary["firstname"];
-                LastName = dictionary["lastname"];
-                Birthday = dictionary["date"];
-                Description = dictionary["description"];
-                Picture = dictionary["image"];
-            }
-
-            catch (KeyNotFoundException e)
-            {
-                Console.WriteLine(e);
-            }
+		    LoadPerson(Who);
 		}
 
-		public async Task OnPostEditAboutAsync()
-		{
-		    await saveService.SaveAboutText(TextUpload, Who);
-
-		}
-
-		public HtmlString GetText()
-		{
-			return new HtmlString(TextUpload);
-		}
-
-
-
-		[Required]
-		[Display(Name = "Picture")]
-		[BindProperty]
-		public IFormFile ImageUpload { get; set; }
+	    public void LoadPerson(PersonEnum.Person person)
+	    {
+	        var dictionary = getService.LoadPersonData(Who);
+	        try
+	        {
+	            FirstName = dictionary["firstname"];
+	            LastName = dictionary["lastname"];
+	            Birthday = dictionary["date"];
+	            Description = dictionary["description"];
+	            Picture = dictionary["image"];
+	        }
+	        catch (KeyNotFoundException e)
+	        {
+	            Console.WriteLine(e);
+	        }
+        }
 
 		public async Task OnPostImageUploadAsync()
 		{
 			if (ImageUpload != null)
 			{
 				await saveService.SaveImage(ImageUpload);
-
 			}
 		}
+
+	    public void OnPostAbout()
+	    {
+            LoadPerson(Who);
+	    }
 
 	    public PersonEnum.Person[] GetPersons()
 	    {

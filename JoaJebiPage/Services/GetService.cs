@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace JoaJebiPage.Services
 {
@@ -30,13 +31,12 @@ namespace JoaJebiPage.Services
             var dictionary = new Dictionary<string, string>();
             try
             {
-                string[] lines = System.IO.File.ReadAllLines("Persistence/" + person + "/About.txt");
-
+                string[] lines = File.ReadAllLines("Persistence/" + person + "/About.txt");
                 var pairs = lines.Select(l => new { Line = l, Position = l.IndexOf("=") });
                 dictionary = pairs.ToDictionary(pair => pair.Line.Substring(0, pair.Position),
                     p => p.Line.Substring(p.Position + 1));
             }
-            catch (FileNotFoundException e)
+            catch (IOException e)
             {
                 Console.WriteLine(e);
             }
@@ -45,15 +45,21 @@ namespace JoaJebiPage.Services
 
         public string[] GetImages(string folder)
         {
-            string path = "wwwroot/images" + folder;
-            var files = Directory.GetFiles(path);
             var images = new List<string>();
-            foreach (var file in files)
+            try
             {
-                string s = file.Replace("\\", "/").Replace("wwwroot", "");
-                images.Add(s);
+                string path = "wwwroot/images" + folder;
+                var files = Directory.GetFiles(path);
+                foreach (var file in files)
+                {
+                    string s = file.Replace("\\", "/").Replace("wwwroot", "");
+                    images.Add(s);
+                }
             }
-
+            catch (IOException e)
+            {
+                Console.WriteLine(e);
+            }
             return images.ToArray();
         }
     }

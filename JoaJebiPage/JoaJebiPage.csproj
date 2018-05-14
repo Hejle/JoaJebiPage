@@ -11,9 +11,6 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Remove="wwwroot\css\font-awesome.min.css" />
     <Content Remove="wwwroot\css\owl.carousel.css" />
     <Content Remove="wwwroot\css\style.css" />

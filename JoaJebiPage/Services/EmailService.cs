@@ -27,22 +27,30 @@ namespace JoaJebiPage.Services
         }
 
         private const string password = "JoaJebi1";
-        private const string sender = "internettechnology2018 @hotmail.com";
+        private const string sender = "internettechnology2018@hotmail.com";
 
         public async Task SendEmail(string email, string name, string message, string subject)
         {
-            var msg = new MailMessage();
-            msg.To.Add(email);
-            msg.Subject = subject;
-            msg.From = new MailAddress(sender);
-            msg.Body = message;
-            var smtpServer = new SmtpClient("smtp.live.com")
+            try
             {
-                Port = 587,
-                Credentials = new NetworkCredential(sender, password),
-                EnableSsl = true
-            };
-            await smtpServer.SendMailAsync(msg);
+                var msg = new MailMessage();
+                msg.To.Add(email);
+                msg.Subject = subject;
+                msg.From = new MailAddress(sender);
+                msg.Body = message;
+                var smtpServer = new SmtpClient("smtp.live.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential(sender, password),
+                    EnableSsl = true
+                };
+                await smtpServer.SendMailAsync(msg);
+            }
+            catch (SmtpException e)
+            {
+                Console.WriteLine(e);
+            }
+            
         }
     }
 }

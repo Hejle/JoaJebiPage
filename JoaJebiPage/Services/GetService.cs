@@ -9,6 +9,22 @@ namespace JoaJebiPage.Services
     public class GetService
     {
 
+        private static GetService instance;
+
+        private GetService() { }
+
+        public static GetService Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new GetService();
+                }
+                return instance;
+            }
+        }
+
         public Dictionary<string, string> LoadPersonData(PersonEnum.Person person)
         {
             var dictionary = new Dictionary<string, string>();

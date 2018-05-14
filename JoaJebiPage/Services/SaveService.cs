@@ -11,7 +11,23 @@ namespace JoaJebiPage.Services
     public class SaveService
     {
 
-        private EmailService emailService = new EmailService();
+        private static SaveService instance;
+
+        private SaveService() { }
+
+        public static SaveService Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new SaveService();
+                }
+                return instance;
+            }
+        }
+
+        private EmailService emailService = EmailService.Instance;
 
         public async Task SaveImage(IFormFile img)
         {         

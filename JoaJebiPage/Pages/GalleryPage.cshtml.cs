@@ -11,7 +11,7 @@ namespace JoaJebiPage.Pages
 {
     public class GalleryPageModel : PageModel
     {
-        private GetService gs = new GetService();
+        private GetService getService = GetService.Instance;
 
         public void OnGet()
         { 
@@ -19,7 +19,7 @@ namespace JoaJebiPage.Pages
 
         public string[] GetImages()
         {
-            return gs.GetImages("/gallery");
+            return getService.GetImages("/gallery");
         }
     }
 }

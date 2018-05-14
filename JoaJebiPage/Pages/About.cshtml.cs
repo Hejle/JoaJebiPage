@@ -11,6 +11,8 @@ namespace JoaJebiPage.Pages
 {
 	public class AboutModel : PageModel
 	{
+
+        private GetService getService = GetService.Instance;
 	    public string FirstName { get; set; } = "FirstName";
 		public string LastName { get; set; } = "LastName";
         public string Birthday { get; set; } = "01. January 1900";
@@ -22,16 +24,26 @@ namespace JoaJebiPage.Pages
 
 	    public void OnGet()
 	    {
-	        /*LoadData(PersonEnum.Person.Jebisan);
-
-	        FirstName = dictionary["firstname"];
-	        LastName = dictionary["lastname"];
-	        Birthday = dictionary["date"];
-	        Description = dictionary["description"];
-	        Picture = dictionary["image"];*/
+	       LoadPerson(PersonEnum.Person.Jebisan);
         }
 
-	    
+	    private void LoadPerson(PersonEnum.Person Who)
+	    {
+	        var dictionary = getService.LoadPersonData(Who);
+	        try
+	        {
+	            FirstName = dictionary["firstname"];
+	            LastName = dictionary["lastname"];
+	            Birthday = dictionary["date"];
+	            Description = dictionary["description"];
+	            Picture = dictionary["image"];
+            }
+	        catch (KeyNotFoundException e)
+	        {
+	            Console.WriteLine(e);
+	        }
+	        
+        }
 
         public PersonEnum.Person[] GetPersons()
 	    {
@@ -41,7 +53,7 @@ namespace JoaJebiPage.Pages
 
 	    public void OnPostAbout()
 	    {
-	        //LoadData(Who);
+	        LoadPerson(Who);
 	    }
     }
 }

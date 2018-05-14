@@ -10,6 +10,21 @@ namespace JoaJebiPage.Services
 {
     public class EmailService
     {
+        private static EmailService instance;
+
+        private EmailService() { }
+
+        public static EmailService Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new EmailService();
+                }
+                return instance;
+            }
+        }
 
         private const string password = "JoaJebi1";
         private const string sender = "internettechnology2018 @hotmail.com";

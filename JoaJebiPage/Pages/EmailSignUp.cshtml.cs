@@ -10,7 +10,7 @@ namespace JoaJebiPage.Pages
 {
     public class EmailSignUpModel : PageModel
     {
-        private SaveService ss = new SaveService();
+        private SaveService saveService = SaveService.Instance;
 
 
         [Required]
@@ -30,7 +30,7 @@ namespace JoaJebiPage.Pages
         {
             if ((EMailUpload != null) & (NameUpload != null))
             {
-                await ss.SaveEmail(NameUpload, EMailUpload);
+                await saveService.SaveEmail(NameUpload, EMailUpload);
             }
         }
     }

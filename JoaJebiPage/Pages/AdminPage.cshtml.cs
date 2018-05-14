@@ -15,7 +15,7 @@ namespace JoaJebiPage.Pages
 {
 	public class AdminPageModel : PageModel
 	{
-		private SaveService saveService = new SaveService();
+		private SaveService saveService = SaveService.Instance;
 
 
 		[Required]

@@ -1,0 +1,5 @@
+firstname=Joachim
+lastname=Hejlesen
+date=10. January 1994
+description=Jeg er en fed idiot.
+image=images/ProfilePictures/Joachim.jpg

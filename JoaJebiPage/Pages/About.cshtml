@@ -23,8 +23,8 @@
         <![endif]-->
     </head>
 <header class="header">
-    <form method="post" enctype="multipart/form-data">
-        <select asp-for="Who">
+    <form method="post"  asp-page-handler="About" enctype="multipart/form-data">
+        <select onchange="this.form.submit()" asp-for="Who">
             @{
                 foreach (var person in @Model.GetPersons())
                 {
@@ -33,7 +33,6 @@
             }
         </select>
         <br/>
-        <input type="submit" value="Change Person" asp-page-handler="About"/>
     </form>
     <div class="container">
         <div class="row">

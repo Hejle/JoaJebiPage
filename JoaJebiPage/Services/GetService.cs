@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.HttpOverrides;
 
@@ -33,7 +34,7 @@ namespace JoaJebiPage.Services
             var dictionary = new Dictionary<string, string>();
             try
             {
-                string[] lines = File.ReadAllLines("Persistence/" + person + "/About.txt");
+                string[] lines = File.ReadAllLines("Persistence/" + person + "/About.txt", Encoding.UTF8);
                 var pairs = lines.Select(l => new { Line = l, Position = l.IndexOf("=") });
                 dictionary = pairs.ToDictionary(pair => pair.Line.Substring(0, pair.Position),
                     p => p.Line.Substring(p.Position + 1));

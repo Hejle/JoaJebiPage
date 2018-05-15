@@ -1,7 +1,7 @@
-firstname=Jebisan
+﻿firstname=Jebisan
 lastname=Nadarajah
 date=8. Januar 1995
-description=Jeg er selvfed og elsker mig selv.
+description=Jeg er cool nok.
 image=images/ProfilePictures/Jebisan.jpg
 worktime2=2016 - Nu
 worktitle2=DJ
@@ -21,5 +21,5 @@ educationplace2=Middelfart Gymnasium
 educationlocation2=Denmark, Middelfart
 educationtime1=2001 - 2011
 educationtitle1=Elev
-educationplace1=Vestreskole
+educationplace1=Østreskole
 educationlocation1=Denmark, Middelfart

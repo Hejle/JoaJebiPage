@@ -1,10 +1,10 @@
-firstname=Joachim
+﻿firstname=Joachim
 lastname=Hejlesen
 date=10. January 1994
-description=Jeg er en = fed idiot.
+description=Jeg er en cool person der går på SDU.
 image=images/ProfilePictures/Joachim.jpg
 worktime2=2017 - Nu
-worktitle2=Studenterprogramm�r
+worktitle2=Studenterprogrammør
 workplace2=POSONE
 worklocation2=Denmark, Odense
 worktime1=2011 - 2015

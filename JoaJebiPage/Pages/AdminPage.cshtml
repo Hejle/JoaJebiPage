@@ -25,14 +25,15 @@
 
         <h3>Change Information</h3>
         <form method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Who"/>
             <p>Firstname: </p>
             <input type="text" asp-for="FirstName"/>
             <p>Lastname: </p>
-            <input type="text" asp-for="@Model.LastName"/>
+            <input type="text" asp-for="LastName"/>
             <p>Birthday: </p>
-            <input type="text" asp-for="@Model.Birthday"/>
+            <input type="text" asp-for="Birthday"/>
             <p>Description: </p>
-            <textarea type="text" asp-for="@Model.Description"> </textarea> <br/> <br/>
+            <textarea type="text" asp-for="Description"> </textarea> <br/> <br/>
             <input type="submit" asp-page-handler="INFORMATION" value="Submit"/>
         </form>
     </div>

@@ -1,7 +1,7 @@
-﻿firstname=Joachim
+firstname=Joachim
 lastname=Hejlesen
-date=10. January 1994
-description=Jeg er en cool person der går på SDU.
+date=10. Januar 1994
+description=Jeg er cool og bor på Fyn.
 image=images/ProfilePictures/Joachim.jpg
 worktime2=2017 - Nu
 worktitle2=Studenterprogrammør

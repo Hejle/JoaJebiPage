@@ -11,7 +11,6 @@ namespace JoaJebiPage.Services
 {
     public class SaveService
     {
-
         private static SaveService instance;
 
         private SaveService() { }
@@ -35,7 +34,6 @@ namespace JoaJebiPage.Services
             {
                 sb.Append(key + "=" + dictionary[key] + "\n");
             }
-
             try
             {
                 await File.WriteAllTextAsync("Persistence/" + person + "/About.txt", sb.ToString());
@@ -44,10 +42,7 @@ namespace JoaJebiPage.Services
             {
                 Console.WriteLine(e);
             }
-            
         }
-
-        private EmailService emailService = EmailService.Instance;
 
         public async Task SaveImage(IFormFile img)
         {
@@ -81,8 +76,7 @@ namespace JoaJebiPage.Services
             }
             string message = "Hej " + name + "\nYou are now subscribed to our newsletter";
             string subject = "Thanks for subscribing to our newsletter";
-            await emailService.SendEmail(email, name, message, subject);
+            await EmailService.Instance.SendEmail(email, name, message, subject);
         }
-
     }
 }

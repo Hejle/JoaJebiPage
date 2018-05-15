@@ -9,7 +9,6 @@ namespace JoaJebiPage.Services
 {
     public class GetService
     {
-
         private static GetService instance;
 
         private GetService() { }
@@ -26,6 +25,9 @@ namespace JoaJebiPage.Services
             }
         }
 
+        /**
+         * Code from https://stackoverflow.com/a/34176522
+         */
         public Dictionary<string, string> LoadPersonData(PersonEnum.Person person)
         {
             var dictionary = new Dictionary<string, string>();

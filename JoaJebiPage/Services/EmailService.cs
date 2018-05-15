@@ -25,10 +25,18 @@ namespace JoaJebiPage.Services
                 return instance;
             }
         }
-
+        /**
+         * EMail-account and EMail-Password
+         */
         private const string password = "JoaJebi1";
         private const string sender = "internettechnology2018@hotmail.com";
 
+        /**
+         * Inspiration from:
+         * https://stackoverflow.com/questions/2470645/sending-mail-using-smtpclient-in-net
+         * https://stackoverflow.com/questions/9201239/send-e-mail-via-smtp-using-c-sharp
+         * https://stackoverflow.com/questions/9851319/how-to-add-smtp-hotmail-account-to-send-mail
+         */
         public async Task SendEmail(string email, string name, string message, string subject)
         {
             try

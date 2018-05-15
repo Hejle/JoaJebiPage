@@ -74,9 +74,7 @@ namespace JoaJebiPage.Pages
 			{
 				Console.WriteLine(e);
 			}
-
 		}
-
 		// Properties that is displayed in THML
 		public string FirstName { get; set; } = "FirstName";
 		public string LastName { get; set; } = "LastName";

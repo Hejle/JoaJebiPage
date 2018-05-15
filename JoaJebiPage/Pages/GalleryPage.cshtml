@@ -5,7 +5,11 @@
 @{
     ViewData["Title"] = "GalleryPage";
 }
-<h2>GalleryPage</h2>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<h1>GalleryPage</h1>
 
 @{
     foreach (var image in @Model.GetImages())

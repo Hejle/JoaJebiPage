@@ -3,38 +3,45 @@
 @{
     ViewData["Title"] = "AdminPage";
 }
-<h2>AdminPage</h2>
+
+<head>
+    <meta charset="utf-8">
+</head>
+<h1>Admin Page</h1>
 <br />
 <div class="row">
     <div class="col-md-12">
-        <form method="post"  asp-page-handler="About" enctype="multipart/form-data">
-            <select onchange="this.form.submit()" asp-for="Who">
-                @{
-                    foreach (var person in @Model.GetPersons())
-                    {
-                        <option value="@person">@person.ToString()</option>
+        <section>
+            <form method="post" asp-page-handler="About" enctype="multipart/form-data">
+                <select onchange="this.form.submit()" asp-for="Who">
+                    @{
+                        foreach (var person in @Model.GetPersons())
+                        {
+                            <option value="@person">@person.ToString()</option>
+                        }
                     }
-                }
-            </select>
-        </form>
-        <h3>Upload Image to Gallery</h3>
-        <form method="post" enctype="multipart/form-data">
-            <input type="file" asp-for="ImageUpload"/>
-            <input type="submit" asp-page-handler="ImageUpload" value="Upload"/>
-        </form>
-
-        <h3>Change Information</h3>
-        <form method="post" enctype="multipart/form-data">
-            <input type="hidden" asp-for="Who"/>
-            <p>Firstname: </p>
-            <input type="text" asp-for="FirstName"/>
-            <p>Lastname: </p>
-            <input type="text" asp-for="LastName"/>
-            <p>Birthday: </p>
-            <input type="text" asp-for="Birthday"/>
-            <p>Description: </p>
-            <textarea type="text" asp-for="Description"> </textarea> <br/> <br/>
-            <input type="submit" asp-page-handler="INFORMATION" value="Submit"/>
-        </form>
+                </select>
+            </form>
+            <h3>Upload Image to Gallery</h3>
+            <form method="post"  asp-page-handler="ImageUpload" enctype="multipart/form-data">
+                <input type="file" asp-for="ImageUpload" />
+                <input type="submit" value="Upload" />
+            </form>
+        </section>
+        <section>
+            <h2>Change Information</h2>
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Who"/>
+                <strong>Firstname </strong> <br/>
+                <input type="text" asp-for="FirstName"/> <br/>
+                <strong>Lastname </strong> <br/>
+                <input type="text" asp-for="LastName"/> <br/>
+                <strong>Birthday </strong> <br/>
+                <input type="text" asp-for="Birthday"/> <br/>
+                <strong>Description </strong> <br/>
+                <textarea type="text" asp-for="Description"> </textarea> <br/> <br/>
+                <input type="submit" asp-page-handler="INFORMATION" value="Submit"/>
+            </form>
+        </section>
     </div>
 </div>

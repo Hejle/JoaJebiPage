@@ -3,13 +3,17 @@
 @{
     ViewData["Title"] = "EmailSignUp";
 }
-
-<h2>EmailSignUp</h2>
-
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<h1>Newsletter</h1>
+<br/>
+<strong>Here you can sign up for Newsletters.</strong>
 <form method="post" enctype="multipart/form-data">
-    <p>Name: </p>
+    <strong>Name: </strong>
     <input type="text" asp-for="NameUpload"> <br>
-    <p>Email: </p>
+    <strong>Email: </strong>
     <input type="email" asp-for="EMailUpload" /> <br> <br>
     <input type="submit" asp-page-handler="EMAIL" value="Submit">
 </form>

@@ -3,10 +3,14 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
 <h1>Home Page</h1>
 
-<p>@Model.WelcomeMessage</p>
+<strong>@Model.WelcomeMessage</strong>
 <br/>
-<p>@Model.SDUNames</p>
+<strong>@Model.SDUNames</strong>
 <br/>
-<p>@Model.FinalMessage</p>
+<strong>@Model.FinalMessage</strong>

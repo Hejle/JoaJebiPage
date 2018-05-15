@@ -11,11 +11,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <Content Remove="wwwroot\css\font-awesome.min.css" />
-    <Content Remove="wwwroot\css\owl.carousel.css" />
     <Content Remove="wwwroot\css\style.css" />
     <Content Remove="wwwroot\images\ProfilePictures\Joachim.jpg" />
-    <Content Remove="wwwroot\css\bootstrap.min.css" />
     <Content Remove="wwwroot\images\ProfilePictures\Jebisan.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -23,9 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\images\ProfilePictures\Joachim.jpg" />
-    <None Include="wwwroot\css\bootstrap.min.css" />
-    <None Include="wwwroot\css\font-awesome.min.css" />
-    <None Include="wwwroot\css\owl.carousel.css" />
     <None Include="wwwroot\css\style.css" />
     <None Include="wwwroot\images\ProfilePictures\Jebisan.jpg" />
   </ItemGroup>

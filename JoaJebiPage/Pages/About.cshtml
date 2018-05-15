@@ -8,11 +8,7 @@
     <link rel="stylesheet" href="~/css/style.css" />
 </head>
 <body>
-
     <h1>About</h1>
-
-
-
     <form method="post" asp-page-handler="About" enctype="multipart/form-data">
         <select onchange="this.form.submit()" asp-for="Who">
             @{
@@ -23,7 +19,6 @@
             }
         </select>
     </form>
-
     <section>
         <div class="col-md-3">
             <div class="profile-img">
@@ -31,28 +26,26 @@
             </div>
             <!-- Profile Image -->
         </div>
-
         <div>
             <h1>@Model.FirstName @Model.LastName</h1>
             <span>Software Engineering, Bachelor studerende</span>
             <p>@Model.Description</p>
         </div>
-
         <div>
             <strong>@Model.Birthday</strong>
             <small>Fødselsdag</small>
         </div>
-
         <div>
             <strong>Danmark</strong>
             <small>Nationalitet</small>
         </div>
     </section>
-
-
-
     <section>
-
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <!-- .experience-work -->
         <div>
             <h3>@Model.WorkTitle2</h3>
@@ -60,6 +53,7 @@
             <p>@Model.WorkLocation2</p>
         </div>
         <!-- .experience-work -->
+        <br />
         <div>
             <small>@Model.WorkTime1</small>
             <h3>@Model.WorkTitle1</h3>
@@ -67,6 +61,7 @@
             <p>@Model.WorkLocation1</p>
         </div>
         <!-- .section-education -->
+        <br />
         <div>
             <small>@Model.EducationTime3</small>
             <h3>@Model.EducationTitle3</h3>
@@ -74,6 +69,7 @@
             <p>@Model.EducationLocation3</p>
         </div>
         <!-- .experience-education -->
+        <br />
         <div>
             <small>@Model.EducationTime2</small>
             <h3>@Model.EducationTitle2</h3>
@@ -81,13 +77,12 @@
             <p>@Model.EducationLocation2</p>
         </div>
         <!-- .experience-education -->
+        <br />
         <div>
             <small>@Model.EducationTime1</small>
             <h3>@Model.EducationTitle1</h3>
             <h4>@Model.EducationPlace1</h4>
             <p>@Model.EducationLocation1</p>
         </div>
-
-
     </section>
 </body>

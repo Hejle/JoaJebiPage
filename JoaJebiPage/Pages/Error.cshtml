@@ -3,10 +3,9 @@
 @{
     ViewData["Title"] = "Error";
 }
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="~/css/style.css" />
-</head>
+@section Styles {
+<link rel="stylesheet" href="~/css/style.css" />
+}
 <h1 class="text-danger">Error.</h1>
 <h2 class="text-danger">An error occurred while processing your request.</h2>
 
@@ -16,7 +15,6 @@
         <strong>Request ID:</strong> <code>@Model.RequestId</code>
     </p>
 }
-
 <h3>Development Mode</h3>
 <p>
     Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
